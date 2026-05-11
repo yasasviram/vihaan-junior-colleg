@@ -44,7 +44,6 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-main); color: var(
 img { max-width: 100%; height: auto; }
 button { font-family: inherit; cursor: pointer; }
 
-/* ADVANCED FEATURE: SCROLL PROGRESS BAR */
 #scroll-progress { position: fixed; top: 0; left: 0; height: 4px; background: var(--accent); width: 0%; z-index: 9999; box-shadow: 0 0 10px rgba(214, 158, 46, 0.8); }
 
 /* ==========================================================================
@@ -80,14 +79,13 @@ section { padding: clamp(60px, 10vw, 100px) 20px; }
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
 .card { background: var(--bg-surface); border-radius: 12px; padding: 40px 30px; border: 1px solid var(--border); transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
 
-/* STATS */
 .hero-stats { display: flex; flex-wrap: wrap; gap: clamp(20px, 4vw, 40px); justify-content: center; margin-top: 40px; }
 .stat-item { background: #FFF; padding: 15px 25px; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 4px 15px rgba(0,0,0,0.02); min-width: 160px; }
 .stat-num-container { font-family: 'Montserrat', sans-serif; font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 900; color: var(--primary); display: flex; align-items: center; justify-content: center; }
 .stat-label { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; margin-top: 8px; text-transform: uppercase; }
 
 /* ==========================================================================
-   4. ADVANCED TESTIMONIAL MARQUEE
+   4. MARQUEE & DIRECTORS
    ========================================================================== */
 .marquee-wrapper { overflow: hidden; white-space: nowrap; width: 100vw; margin-left: -20px; background: var(--primary); padding: 40px 0; border-top: 4px solid var(--accent); border-bottom: 4px solid var(--accent); position: relative; }
 .marquee-content { display: inline-flex; animation: scroll-left 35s linear infinite; gap: 30px; padding-left: 30px; }
@@ -99,16 +97,12 @@ section { padding: clamp(60px, 10vw, 100px) 20px; }
 .review-batch { font-size: 0.7rem; font-weight: 600; color: var(--text-muted); }
 @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* ==========================================================================
-   5. DIRECTORS SECTION
-   ========================================================================== */
 .director-img { width: 130px; height: 130px; border-radius: 8px; object-fit: cover; border: 3px solid var(--border); margin: 0 auto 15px; display: block; cursor: pointer; transition: 0.3s; }
 .director-img:hover { transform: scale(1.05); border-color: var(--primary); }
 .director-name { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--text-heading); }
 .director-role { font-size: 0.7rem; color: var(--accent); font-weight: 800; background: #FFFBEB; border-radius: 4px; padding: 4px 12px; display: inline-block; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px; }
 .director-quote { font-size: 0.85rem; font-style: italic; color: var(--text-muted); margin-top: 18px; padding-top: 15px; border-top: 1px dashed var(--border); line-height: 1.6; }
 
-/* POP-UP MODAL */
 .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(5px); z-index: 2000; align-items: center; justify-content: center; padding: 20px; flex-direction: column; animation: fadeIn 0.3s ease; }
 .modal-content { position: relative; max-width: 90vw; max-height: 80vh; display: flex; flex-direction: column; align-items: center; }
 .modal-img { max-width: 100%; max-height: 60vh; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 4px solid #FFF; object-fit: cover; }
@@ -118,7 +112,7 @@ section { padding: clamp(60px, 10vw, 100px) 20px; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ==========================================================================
-   6. MAP, FORMS & FOOTER
+   5. MAP
    ========================================================================== */
 .map-container { max-width: 1100px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 1px solid var(--border); position: relative; }
 #leaflet-map { height: 500px; width: 100%; z-index: 1; background-color: #E2E8F0; }
@@ -131,16 +125,62 @@ section { padding: clamp(60px, 10vw, 100px) 20px; }
 .btn-directions { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--primary); color: #FFF; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.85rem; padding: 14px 20px; border-radius: 8px; text-decoration: none; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
 .btn-directions:hover { background: var(--primary-light); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(26, 54, 93, 0.3); }
 
-.form-container { max-width: 750px; margin: 0 auto; background: var(--bg-surface); padding: 40px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-.form-input, .form-select { width: 100%; background: #F8FAFC; border: 1px solid #CBD5E1; border-radius: 8px; padding: 14px; font-size: 0.95rem; margin-top: 5px; transition: 0.3s; }
-.form-input:focus, .form-select:focus { border-color: var(--primary); background: #FFF; outline: none; box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1); }
-.form-input.error { border-color: var(--error); box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1); }
-.btn-submit { background: var(--primary); color: #FFF; border: none; padding: 16px 30px; border-radius: 8px; font-weight: 700; text-transform: uppercase; width: 100%; transition: 0.3s; margin-top: 20px; font-family: 'Montserrat'; }
+/* ==========================================================================
+   6. COMPLETELY RESTORED FORM & RECEIPT STYLES
+   ========================================================================== */
+.form-container { max-width: 750px; margin: 0 auto; background: var(--bg-surface); padding: clamp(25px, 5vw, 40px); border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
 
-/* OVERRIDE FOR INTL-TEL-INPUT TO MATCH OUR THEME */
-.iti { width: 100%; margin-top: 5px; }
+/* Progress Bar */
+.progress-steps { display: flex; justify-content: center; margin-bottom: 35px; }
+.step-node { display: flex; flex-direction: column; align-items: center; flex: 1; position: relative; }
+.step-node:not(:last-child)::after { content: ''; position: absolute; top: 15px; left: 50%; width: 100%; height: 2px; background: var(--border); z-index: 0; }
+.step-node.active:not(:last-child)::after, .step-node.done:not(:last-child)::after { background: var(--primary); }
+.step-circle { width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--border); background: var(--bg-surface); display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 800; color: var(--text-muted); position: relative; z-index: 1; transition: all 0.3s; }
+.step-node.active .step-circle { border-color: var(--primary); background: var(--primary); color: #FFF; }
+.step-node.done .step-circle { border-color: var(--success); background: var(--success); color: #FFF; }
+.step-label { font-size: 0.65rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--text-muted); margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px; text-align: center;}
+
+/* Form Steps & Layout */
+.form-step { display: none; animation: fadeIn 0.4s ease; }
+.form-step.active { display: block; }
+.form-step h3 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.1rem, 4vw, 1.3rem); font-weight: 800; color: var(--primary); margin-bottom: 25px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+.form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 15px; }
+.form-group { width: 100%; }
+.form-label { display: block; font-size: 0.8rem; font-family: 'Inter', sans-serif; font-weight: 600; color: var(--text-heading); margin-bottom: 6px; }
+.form-label .req { color: var(--error); }
+
+/* Inputs & Buttons */
+.form-input, .form-select { width: 100%; background: #F8FAFC; border: 1px solid #CBD5E1; border-radius: 8px; padding: 14px; font-size: 0.95rem; transition: 0.3s; font-family: 'Inter', sans-serif; }
+.form-input:focus, .form-select:focus { border-color: var(--primary); background: #FFF; outline: none; box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1); }
+.form-input.error, .form-select.error { border-color: var(--error); box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1); }
+.form-nav { display: flex; justify-content: space-between; margin-top: 30px; gap: 15px; }
+.btn-back, .btn-next, .btn-submit { padding: 14px 24px; border-radius: 8px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: 0.3s; text-transform: uppercase; flex: 1; max-width: 200px; text-align: center; border: none; }
+.btn-back { background: #F1F5F9; color: var(--text-heading); border: 1px solid #CBD5E1; }
+.btn-next, .btn-submit { background: var(--primary); color: #FFF; }
+.btn-next:hover, .btn-submit:hover { background: var(--primary-light); transform: translateY(-2px); }
+.btn-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+/* INTL-TEL-INPUT OVERRIDES */
+.iti { width: 100%; }
 .iti__flag-container { padding: 1px; }
 
+/* Receipt Styling */
+#success-view { display: none; text-align: center; }
+.success-icon { font-size: 3rem; margin-bottom: 10px; }
+#success-view h2 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.5rem, 5vw, 2rem); color: var(--success); margin-bottom: 8px; }
+#receipt-doc { background: #FFF; border: 4px solid var(--primary); padding: clamp(20px, 5vw, 40px); margin-top: 30px; text-align: left; }
+.receipt-header-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 15px; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.receipt-title-wrap .r-name { font-family: 'Montserrat', sans-serif; font-size: clamp(1.1rem, 4vw, 1.4rem); font-weight: 900; color: var(--primary); }
+.receipt-title-wrap .r-sub { font-size: 0.7rem; color: var(--text-muted); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+.receipt-section-title { background: #F1F5F9; color: var(--primary); font-family: 'Montserrat', sans-serif; font-weight: 800; padding: 6px 12px; margin: 15px 0 10px; border-left: 3px solid var(--accent); font-size: 0.8rem; text-transform: uppercase; }
+.receipt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px 20px; }
+.receipt-field { display: flex; flex-direction: column; border-bottom: 1px solid #F8FAFC; padding-bottom: 5px; }
+.receipt-field-label { font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; }
+.receipt-field-value { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text-heading); margin-top: 2px; word-break: break-word; }
+
+/* ==========================================================================
+   7. FOOTER & MISC
+   ========================================================================== */
 .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25D366; color: #FFF; border-radius: 50px; display: flex; align-items: center; justify-content: center; z-index: 1500; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s; }
 .whatsapp-float:hover { transform: translateY(-5px); }
 footer { background: var(--primary); color: #FFF; padding: 60px 20px 30px; text-align: center; }
@@ -149,6 +189,12 @@ footer { background: var(--primary); color: #FFF; padding: 60px 20px 30px; text-
   .map-overlay-card { top: auto; bottom: 10px; left: 10px; right: 10px; max-width: none; }
   #leaflet-map { height: 400px; }
   .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; }
+}
+@media print {
+  body * { visibility: hidden; }
+  #receipt-doc, #receipt-doc * { visibility: visible; }
+  #receipt-doc { position: absolute; left: 0; top: 0; width: 100%; border: 2px solid #000 !important; padding: 20px; }
+  .no-print { display: none !important; }
 }
 </style>
 </head>
@@ -189,7 +235,7 @@ footer { background: var(--primary); color: #FFF; padding: 60px 20px 30px; text-
       <div class="stat-item"><div class="stat-num-container"><span class="counter" data-target="24">0</span>/7</div><div class="stat-label">CBT Lab Access</div></div>
     </div>
 
-    <a href="#admissions" class="btn-primary" style="display:inline-block; margin-top: 30px; padding: 15px 35px; background: var(--primary); color: #FFF; text-decoration: none; border-radius: 8px; font-family: 'Montserrat'; font-weight: 700;">ENROLL TODAY</a>
+    <a href="#admissions" class="btn-primary" style="display:inline-block; margin-top: 30px; padding: 15px 35px;">ENROLL TODAY</a>
   </div>
 </section>
 
@@ -259,7 +305,6 @@ footer { background: var(--primary); color: #FFF; padding: 60px 20px 30px; text-
       <div class="director-role">Academic Director</div>
       <div class="director-quote">"Physics is not about memorizing formulas; it is about visualizing the universe. We build that vision."</div>
     </div>
-    
     <div class="card" style="text-align: center;">
       <img src="lakshmana_rao.jpg" class="director-img" alt="B. Lakshmana Rao" onclick="openPopup(this.src, 'B. Lakshmana Rao')" onerror="this.src='https://ui-avatars.com/api/?name=Lakshmana+Rao&background=F1F5F9&color=1A365D&size=200';">
       <div class="director-name">B. Lakshmana Rao</div>
@@ -267,7 +312,6 @@ footer { background: var(--primary); color: #FFF; padding: 60px 20px 30px; text-
       <div class="director-role">Academic Director</div>
       <div class="director-quote">"Mathematics is the language of logic. We train your mind to think systematically, making any complex problem solvable."</div>
     </div>
-    
     <div class="card" style="text-align: center;">
       <img src="v_ramu.jpg" class="director-img" alt="V. Ramu" onclick="openPopup(this.src, 'V. Ramu')" onerror="this.src='https://ui-avatars.com/api/?name=V+Ramu&background=F1F5F9&color=1A365D&size=200';">
       <div class="director-name">V. Ramu</div>
@@ -275,7 +319,6 @@ footer { background: var(--primary); color: #FFF; padding: 60px 20px 30px; text-
       <div class="director-role">Academic Director</div>
       <div class="director-quote">"Like a precise chemical reaction, success requires the right catalyst. We provide the exact environment for your potential to rise."</div>
     </div>
-    
     <div class="card" style="text-align: center;">
       <img src="lk_tripathy.jpg" class="director-img" alt="L.K. Tripathy" onclick="openPopup(this.src, 'L.K. Tripathy')" onerror="this.src='https://ui-avatars.com/api/?name=LK+Tripathy&background=F1F5F9&color=1A365D&size=200';">
       <div class="director-name">L.K. Tripathy</div>
@@ -283,7 +326,6 @@ footer { background: var(--primary); color: #FFF; padding: 60px 20px 30px; text-
       <div class="director-role">Director / Principal</div>
       <div class="director-quote">"True education goes beyond ranks. We focus on conceptual depth, character building, and creating a stress-free path to excellence."</div>
     </div>
-    
     <div class="card" style="text-align: center;">
       <img src="sudhakar_varma.jpg" class="director-img" alt="N.V.S.S. Sudhakar Varma" onclick="openPopup(this.src, 'N.V.S.S. Sudhakar Varma')" onerror="this.src='https://ui-avatars.com/api/?name=Sudhakar+Varma&background=F1F5F9&color=1A365D&size=200';">
       <div class="director-name">N.V.S.S. Sudhakar Varma</div>
@@ -291,7 +333,6 @@ footer { background: var(--primary); color: #FFF; padding: 60px 20px 30px; text-
       <div class="director-role">Director</div>
       <div class="director-quote">"Every student has an inherent spark. Our structured pedagogy is designed to ignite that spark into a national-level achievement."</div>
     </div>
-    
     <div class="card" style="text-align: center;">
       <img src="vidhya_kant.jpg" class="director-img" alt="B. Vidhya Kant" onclick="openPopup(this.src, 'B. Vidhya Kant')" onerror="this.src='https://ui-avatars.com/api/?name=Vidhya+Kant&background=F1F5F9&color=1A365D&size=200';">
       <div class="director-name">B. Vidhya Kant</div>
@@ -314,16 +355,13 @@ footer { background: var(--primary); color: #FFF; padding: 60px 20px 30px; text-
   <div class="section-header">
     <div class="section-tag">Live GPS Navigation</div>
     <h2 class="section-title">Campus <span>Tracker</span></h2>
-    <p style="margin-top: 15px; color: var(--text-muted);">Navigate to our high-precision location on Iragavaram Road.</p>
   </div>
-  
   <div class="map-container">
     <div id="leaflet-map"></div>
     <div class="map-overlay-card">
       <div class="map-overlay-title">Official Campus</div>
       <div class="map-overlay-text">
-        Iragavaram Road, near Roots New Branch,<br>
-        Old Town, Tanuku, A.P. 534211
+        Iragavaram Road, near Roots New Branch,<br>Old Town, Tanuku, A.P. 534211
       </div>
       <a href="https://www.google.com/maps/dir/?api=1&destination=16.741806,81.694694" target="_blank" class="btn-directions">
         <span>📍</span> START GPS NAVIGATION
@@ -386,9 +424,11 @@ footer { background: var(--primary); color: #FFF; padding: 60px 20px 30px; text-
             <input type="tel" class="form-input" id="f-guardian-phone" required>
           </div>
         </div>
-        <div class="form-group">
-          <label class="form-label" for="f-address">Full Address</label>
-          <input type="text" class="form-input" id="f-address">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="f-address">Full Address</label>
+            <input type="text" class="form-input" id="f-address">
+          </div>
         </div>
         <div class="form-nav">
           <button type="button" class="btn-back" onclick="goBack(2)">Back</button>
@@ -414,6 +454,43 @@ footer { background: var(--primary); color: #FFF; padding: 60px 20px 30px; text-
         </div>
       </div>
       
+    </div>
+
+    <div id="success-view">
+      <div class="success-icon no-print">✅</div>
+      <h2 class="no-print">Application Registered</h2>
+      <p class="no-print" style="color:var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Please print or screenshot this official document.</p>
+      
+      <div id="receipt-doc">
+        <div class="receipt-header-row">
+          <div class="receipt-title-wrap">
+            <div class="r-name">VIHAAN JUNIOR COLLEGE</div>
+            <div class="r-sub">IIT JEE & NEET Academy · Tanuku, A.P.</div>
+          </div>
+          <div style="text-align: right;">
+             <div style="font-weight: 800; color: var(--error); font-size: 0.9rem;">REF: <span id="r-ref-id"></span></div>
+             <div id="r-date" style="font-size: 0.75rem; color: #666; font-weight: 600; margin-top: 3px;"></div>
+          </div>
+        </div>
+        
+        <div class="receipt-section-title">Student Information</div>
+        <div class="receipt-grid">
+          <div class="receipt-field"><div class="receipt-field-label">Name</div><div class="receipt-field-value" id="r-name"></div></div>
+          <div class="receipt-field"><div class="receipt-field-label">Phone</div><div class="receipt-field-value" id="r-phone"></div></div>
+          <div class="receipt-field"><div class="receipt-field-label">Email</div><div class="receipt-field-value" id="r-email"></div></div>
+          <div class="receipt-field"><div class="receipt-field-label">School</div><div class="receipt-field-value" id="r-school"></div></div>
+        </div>
+        
+        <div class="receipt-section-title">Guardian & Academic Details</div>
+        <div class="receipt-grid">
+          <div class="receipt-field"><div class="receipt-field-label">Guardian</div><div class="receipt-field-value" id="r-guardian"></div></div>
+          <div class="receipt-field"><div class="receipt-field-label">Course</div><div class="receipt-field-value" id="r-course"></div></div>
+        </div>
+      </div>
+      
+      <div style="margin-top: 25px; display: flex; justify-content: center; gap: 10px;" class="no-print">
+         <button type="button" class="btn-submit" onclick="window.print()" style="max-width: 200px;">🖨️ Print Document</button>
+      </div>
     </div>
   </div>
 </section>
@@ -497,7 +574,6 @@ document.addEventListener('keydown', function(event) { if (event.key === 'Escape
 
 /* STRICT FORM VALIDATION & NAVIGATION */
 function goNext(step){
-  // 1. Check basic empty fields
   const inputs = document.getElementById('step-'+step).querySelectorAll('input[required], select[required]');
   let isValid = true;
   inputs.forEach(input => { 
@@ -507,9 +583,7 @@ function goNext(step){
 
   if(!isValid) return alert('Please fill all required fields before proceeding.');
 
-  // 2. Strict Custom Validation for Step 1
   if(step === 1) {
-    // Email Validation
     const emailInput = document.getElementById('f-email');
     const email = emailInput.value.toLowerCase();
     const validDomains = ['@gmail.com', '@yahoo.com', '@outlook.com', '@hotmail.com', '@icloud.com', '@live.com'];
@@ -520,14 +594,12 @@ function goNext(step){
       return alert("Please use a standard email provider (@gmail.com, @yahoo.com, @outlook.com, etc.)");
     }
 
-    // Phone Format Validation
     if(!phoneInput.isValidNumber()) {
       document.getElementById('f-phone').classList.add('error');
       return alert("Please enter a valid mobile number with the correct country code.");
     }
   }
 
-  // 3. Strict Custom Validation for Step 2
   if(step === 2) {
     if(!guardianPhoneInput.isValidNumber()) {
       document.getElementById('f-guardian-phone').classList.add('error');
@@ -535,7 +607,6 @@ function goNext(step){
     }
   }
   
-  // 4. Slide Animations
   document.getElementById('step-'+step).classList.remove('active');
   document.getElementById('step-'+(step+1)).classList.add('active');
   document.getElementById('node-'+step).classList.add('done');
@@ -557,28 +628,36 @@ function submitForm(){
   document.getElementById('submitBtn').disabled = true;
   
   const refId = 'VJC-' + Math.floor(1000 + Math.random() * 9000);
-  
-  // Use .getNumber() to get the clean international format (+91...)
   const name = document.getElementById('f-name').value;
   const email = document.getElementById('f-email').value;
+  const school = document.getElementById('f-school').value;
+  const guardian = document.getElementById('f-guardian').value;
   const cleanPhone = phoneInput.getNumber(); 
   const cleanGPhone = guardianPhoneInput.getNumber();
 
+  document.getElementById('r-ref-id').textContent = refId;
+  document.getElementById('r-date').textContent = new Date().toLocaleDateString('en-IN');
+  document.getElementById('r-name').textContent = name;
+  document.getElementById('r-phone').textContent = cleanPhone;
+  document.getElementById('r-email').textContent = email;
+  document.getElementById('r-school').textContent = school;
+  document.getElementById('r-guardian').textContent = guardian;
+  document.getElementById('r-course').textContent = course;
+
   try {
     if (typeof emailjs !== 'undefined') {
-      
-      // Admin Alert
       emailjs.send(EMAILJS_SERVICE_ID, ADMIN_TEMPLATE_ID, { 
-        ref_id: refId, student_name: name, email: email, phone: cleanPhone, g_phone: cleanGPhone, course: course 
+        ref_id: refId, student_name: name, email: email, phone: cleanPhone, school: school, guardian: guardian, g_phone: cleanGPhone, course: course 
       });
 
-      // Student Receipt
       emailjs.send(EMAILJS_SERVICE_ID, STUDENT_TEMPLATE_ID, { 
         ref_id: refId, student_name: name, student_email: email, course: course 
       }).then(() => {
         if(typeof confetti !== 'undefined') confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
-        alert("Application Received! Reference ID: " + refId);
-        location.reload();
+        document.getElementById('form-view').style.display = 'none';
+        document.querySelector('.progress-bar-wrap').style.display = 'none';
+        document.getElementById('success-view').style.display = 'block';
+        document.getElementById('admissions').scrollIntoView({ behavior: 'smooth' });
       }).catch((err) => {
         alert("Submission failed. Please check connection.");
         document.getElementById('submitBtn').innerText = "Submit Application";
